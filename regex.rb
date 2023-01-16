@@ -6,14 +6,14 @@ def ends_with
   string.last?(reges.tr('&'))
 end
 
-def is_match(s, p)
-  return s.empty? if p.empty?
+def is_match(string, regex)
+  return string.empty? if regex.empty?
 
-  first = !s.empty? && [s[0], '.'].include?(p[0])
-  if p[1] == '*'
-    is_match(s, p[2..-1]) || (first && is_match(s[1..-1], p))
+  first = !string.empty? && [string[0], '.'].include?(regex[0])
+  if regex[1] == '*'
+    is_match(string, regex[2..-1]) || (first && is_match(string[1..-1], regex))
   else
-    first && is_match(s[1..-1], p[1..-1])
+    first && is_match(string[1..-1], regex[1..-1])
   end
 end
 
