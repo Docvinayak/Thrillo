@@ -34,4 +34,4 @@ end
 
 regex = gets.chomp
 string = gets.chomp
-puts regx_symbol(regex, string)
+puts regx_symbol(regex, string);
